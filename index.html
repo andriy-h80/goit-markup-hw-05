@@ -49,7 +49,7 @@
             <div class="container">
         <!-- Назва HERO -->  
             <h1 class="general-title">Ефективні рішення для вашого бізнесу</h1>
-            <button type="button" class="button-hero">Замовити послугу</button>
+            <button type="button" class="button-hero" data-modal-open>Замовити послугу</button>
             </div>
         </section>    
 
@@ -104,13 +104,22 @@
             <div class="container">
             <ul class="our-work">
                 <li class="work-photo">
-                    <img src= "./images/box01s.jpg" alt= "Робота за планшетом" width= "370"/>
+                    <div class="position-type">
+                         <img src= "./images/box01s.jpg" alt= "Робота за планшетом" width= "370"/>
+                        <p class="work-type">Десктопні додатки</p>
+                    </div>
                 </li>
                 <li class="work-photo">
-                    <img src= "./images/box02s.jpg" alt= "Робота за ноутбуком" width= "370"/>
+                    <div class="position-type">
+                        <img src= "./images/box02s.jpg" alt= "Робота за ноутбуком" width= "370"/>
+                        <p class="work-type">Мобільні додатки</p>
+                    </div>
                 </li>
                 <li class="work-photo">
-                    <img src= "./images/box03s.jpg" alt= "Планшет в руках" width= "370"/>
+                    <div class="position-type">
+                        <img src= "./images/box03s.jpg" alt= "Планшет в руках" width= "370"/>
+                        <p class="work-type">Дизайнерські рішення</p>
+                    </div>
                 </li>
             </ul>
             </div>
@@ -350,5 +359,14 @@
             </div>
         </div> 
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <!-- <p></p> -->
+            <button class="close" data-modal-close></button>
+        </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
 </body>
 </html>

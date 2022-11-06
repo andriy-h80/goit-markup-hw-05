@@ -120,6 +120,8 @@ header > a {
 a:hover,
 a:focus {
   color: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ul{
@@ -219,6 +221,8 @@ li {
 .envelope:hover,
 .envelope:focus{
   fill: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
   
 .smartfone{
@@ -229,7 +233,9 @@ li {
 
 .smartfone:hover,
 .smartfone:focus{
-  fill: var(--hover-color)
+  fill: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Вирівнювання контактів */
@@ -254,10 +260,24 @@ li {
 .nav-link:hover,
 .nav-link:focus {
   color: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link {
   color: var(--hover-color);
+}
+
+/* Псевдоелемент головної наввігації */
+.link::after{
+  content: "";
+  display: block;
+  height: 4px;
+  /* margin-top: 28px;
+  padding-bottom: 0; */
+  /* align-content: flex-end; */
+  background-color: var(--hover-color);
+  border-radius: 2px; 
 }
 
 /* Відступи у секціях */
@@ -340,12 +360,16 @@ li {
 .button-portfolio:focus{
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
 .button:focus {
   color: var(--white-color);
   background-color: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Заголовок про нас */
@@ -397,6 +421,51 @@ li {
   margin-right: 50px;
 }
 
+/* Модальне вікно */
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden{
+  /* visibility: visible; */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+  padding: 8px 8px ;
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;;
+}
+
+.close{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-image: url(../images/Close-X.svg);
+  padding: 6px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .action{
 display: flex;
 padding: 0;
@@ -419,6 +488,31 @@ list-style: none;
   width: 70px;
   height: 70px;
   fill: currentColor;
+}
+
+/* Фон для секції "Наша робота" */
+.position-type{
+  position: relative;
+  }
+
+.work-type{
+  position: absolute;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background: rgba(47, 48, 58, 0.8);
+    
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 370px;
+  height: 70px;
 }
 
 /* Вирівнювання секцій */
@@ -522,6 +616,8 @@ list-style: none;
 .icon-team:hover,
 .icon-team:focus{
   fill: var(--white-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Межі посад і П.І.Б */
@@ -577,6 +673,8 @@ list-style: none;
 .client-link .clients-icon:hover,
 .client-link .clients-icon:focus{
   fill: var(--hover-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
  }
 
 /* Назва проекту */
@@ -615,13 +713,47 @@ list-style: none;
   padding: 0;
 }
 
+/* Оверлей */
 .projects-item{
   width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
+  position: relative;
 }
+
+.projects-item:hover .overlay {
+  transform: translatey(0);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 73%;
+  background-color: var(--hover-color);
+
+  transform: translatey(146%);
+  /* transition-property: transform; */
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay > p {
+  color: #fff;
+  padding: 63px 24px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+}
+
 .project-shadow:hover{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .projects-item:nth-child(3n){
