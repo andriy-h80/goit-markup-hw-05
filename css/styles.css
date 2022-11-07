@@ -422,7 +422,7 @@ li {
 }
 
 .advantage-name:not(:last-child){
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 /* Модальне вікно */
